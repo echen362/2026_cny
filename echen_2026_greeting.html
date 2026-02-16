@@ -28,6 +28,88 @@
             body {
                 padding: 5px;
             }
+
+            .container {
+                padding: 5px;
+                max-width: 100%;
+            }
+
+            .lantern {
+                width: 90px;
+                height: 110px;
+                margin: 0 auto 15px;
+            }
+
+            .lantern-top {
+                width: 50px;
+                height: 20px;
+            }
+
+            .lantern-top::before {
+                width: 8px;
+                height: 15px;
+                top: -15px;
+            }
+
+            .lantern-body {
+                width: 90px;
+                height: 70px;
+            }
+
+            .lantern-body::before {
+                font-size: 35px;
+            }
+
+            .lantern-bottom {
+                width: 50px;
+                height: 20px;
+            }
+
+            .tassel {
+                width: 3px;
+                height: 40px;
+            }
+
+            .tassel-end {
+                width: 25px;
+                height: 25px;
+            }
+
+            .year-text {
+                font-size: 36px;
+                margin: 15px 0 10px 0;
+            }
+
+            .horse-container {
+                gap: 8px;
+                margin: 15px 0;
+            }
+
+            .horse {
+                font-size: 40px;
+            }
+
+            .button {
+                padding: 12px 25px;
+                font-size: 16px;
+                margin: 15px 0 10px 0;
+            }
+
+            .greeting-text {
+                font-size: 22px;
+                margin: 15px 0;
+                min-height: 70px;
+                padding: 0 10px;
+            }
+
+            .greeting-content {
+                font-size: 22px !important;
+            }
+
+            .subtitle {
+                font-size: 12px;
+                margin-top: 10px;
+            }
         }
 
         /* Animated background pattern */
@@ -57,28 +139,12 @@
             width: 100%;
         }
 
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-                max-width: 100%;
-            }
-        }
-
         .lantern {
             width: 180px;
             height: 200px;
             margin: 0 auto 30px;
             position: relative;
             animation: swing 3s ease-in-out infinite;
-        }
-
-        @media (max-width: 768px) {
-            .lantern {
-                width: 120px;
-                height: 140px;
-                margin: 0 auto 20px;
-            }
         }
 
         @keyframes swing {
@@ -123,13 +189,6 @@
             overflow: hidden;
         }
 
-        @media (max-width: 768px) {
-            .lantern-body {
-                width: 120px;
-                height: 95px;
-            }
-        }
-
         .lantern-body::before {
             content: '福';
             font-size: 70px;
@@ -137,12 +196,6 @@
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             z-index: 2;
-        }
-
-        @media (max-width: 768px) {
-            .lantern-body::before {
-                font-size: 45px;
-            }
         }
 
         .lantern-pattern {
@@ -193,13 +246,6 @@
             animation: glow 2s ease-in-out infinite alternate;
         }
 
-        @media (max-width: 768px) {
-            .year-text {
-                font-size: 48px;
-                margin: 20px 0;
-            }
-        }
-
         @keyframes glow {
             from { text-shadow: 3px 3px 6px rgba(0,0,0,0.5), 0 0 20px rgba(255,215,0,0.5); }
             to { text-shadow: 3px 3px 6px rgba(0,0,0,0.5), 0 0 30px rgba(255,215,0,0.8), 0 0 40px rgba(255,215,0,0.6); }
@@ -213,23 +259,10 @@
             perspective: 1000px;
         }
 
-        @media (max-width: 768px) {
-            .horse-container {
-                gap: 10px;
-                margin: 20px 0;
-            }
-        }
-
         .horse {
             font-size: 80px;
             animation: bounce 1s ease-in-out infinite;
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-        }
-
-        @media (max-width: 768px) {
-            .horse {
-                font-size: 50px;
-            }
         }
 
         .horse:nth-child(1) {
@@ -261,15 +294,6 @@
             justify-content: center;
             line-height: 1.5;
             padding: 0 10px;
-        }
-
-        @media (max-width: 768px) {
-            .greeting-text {
-                font-size: 28px;
-                margin: 20px 0;
-                min-height: 80px;
-                padding: 0 5px;
-            }
         }
 
         .greeting-content {
@@ -310,14 +334,6 @@
             overflow: hidden;
         }
 
-        @media (max-width: 768px) {
-            .button {
-                padding: 15px 30px;
-                font-size: 18px;
-                margin: 15px 0;
-            }
-        }
-
         .button::before {
             content: '';
             position: absolute;
@@ -352,13 +368,6 @@
             color: rgba(255,255,255,0.9);
             margin-top: 20px;
             font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            .subtitle {
-                font-size: 14px;
-                margin-top: 15px;
-            }
         }
 
         /* Fireworks */
@@ -453,15 +462,15 @@
             <div class="horse">🐴</div>
         </div>
 
-        <div class="greeting-text" id="greetingText">
-            <div class="greeting-content" style="opacity: 0.6; font-size: 28px;">
-                马儿正在思考中...<br/>🐴💭
-            </div>
-        </div>
-
         <button class="button" id="greetingButton">
             点击您的专属祝福
         </button>
+
+        <div class="greeting-text" id="greetingText">
+            <div class="greeting-content" style="opacity: 0.6; font-size: 18px;">
+                马儿正在思考中...<br/>🐴💭
+            </div>
+        </div>
 
         <div class="subtitle">马年行大运 · 万事马到功成</div>
     </div>
@@ -541,7 +550,12 @@
                 placeholderIndex = (placeholderIndex + 1) % placeholders.length;
                 const content = greetingText.querySelector('.greeting-content');
                 content.style.opacity = '0.6';
-                content.style.fontSize = '28px';
+                // Set font size based on screen width
+                if (window.innerWidth <= 768) {
+                    content.style.fontSize = '18px';
+                } else {
+                    content.style.fontSize = '28px';
+                }
                 content.innerHTML = placeholders[placeholderIndex].replace(/\n/g, '<br/>');
             }
         }
@@ -580,7 +594,12 @@
             const newContent = document.createElement('div');
             newContent.className = 'greeting-content';
             newContent.style.opacity = '1';
-            newContent.style.fontSize = '48px';
+            // Set font size based on screen width
+            if (window.innerWidth <= 768) {
+                newContent.style.fontSize = '22px';
+            } else {
+                newContent.style.fontSize = '48px';
+            }
             newContent.innerHTML = messageToShow.replace(/\n/g, '<br/>');
             
             greetingText.innerHTML = '';
