@@ -33,85 +33,92 @@
             }
 
             .container {
-                padding: 5px;
+                padding: 3px;
                 max-width: 100%;
             }
 
             .lantern {
-                width: 70px;
-                height: 90px;
-                margin: 0 auto 10px;
+                width: 55px;
+                height: 70px;
+                margin: 0 auto 5px;
             }
 
             .lantern-top {
-                width: 40px;
-                height: 15px;
+                width: 30px;
+                height: 12px;
             }
 
             .lantern-top::before {
-                width: 6px;
-                height: 12px;
-                top: -12px;
+                width: 5px;
+                height: 10px;
+                top: -10px;
             }
 
             .lantern-body {
-                width: 70px;
-                height: 55px;
+                width: 55px;
+                height: 42px;
             }
 
             .lantern-body::before {
-                font-size: 28px;
+                font-size: 22px;
             }
 
             .lantern-bottom {
-                width: 40px;
-                height: 15px;
+                width: 30px;
+                height: 12px;
             }
 
             .tassel {
                 width: 2px;
-                height: 30px;
-            }
-
-            .tassel-end {
-                width: 20px;
                 height: 20px;
             }
 
+            .tassel-end {
+                width: 15px;
+                height: 15px;
+            }
+
             .year-text {
-                font-size: 32px;
-                margin: 10px 0 8px 0;
+                font-size: 28px;
+                margin: 5px 0;
             }
 
             .horse-container {
-                gap: 6px;
-                margin: 10px 0;
+                gap: 5px;
+                margin: 5px 0;
             }
 
             .horse {
-                font-size: 35px;
+                font-size: 30px;
             }
 
             .button {
-                padding: 10px 20px;
-                font-size: 15px;
-                margin: 10px 0 8px 0;
+                padding: 8px 18px;
+                font-size: 14px;
+                margin: 8px 0 5px 0;
             }
 
             .greeting-text {
-                font-size: 20px;
-                margin: 10px 0;
-                min-height: 60px;
-                padding: 0 8px;
+                font-size: 18px;
+                margin: 5px 0;
+                min-height: 50px;
+                padding: 0 5px;
+                line-height: 1.3;
             }
 
             .greeting-content {
-                font-size: 20px !important;
+                font-size: 18px !important;
             }
 
             .subtitle {
-                font-size: 11px;
-                margin-top: 8px;
+                font-size: 10px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
+            /* Reduce decoration sizes on mobile */
+            .decoration {
+                font-size: 20px;
             }
         }
 
@@ -373,6 +380,56 @@
             font-style: italic;
         }
 
+        /* Downward arrows indicator */
+        .scroll-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 8px 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 12px solid #FFD700;
+            animation: bounce-arrow 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .arrow-down:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .arrow-down:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .arrow-down:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce-arrow {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(8px);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .arrow-down {
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 10px solid #FFD700;
+            }
+        }
+
         /* Fireworks */
         .firework {
             position: fixed;
@@ -469,8 +526,14 @@
             点击您的专属祝福
         </button>
 
+        <div class="scroll-indicator">
+            <div class="arrow-down"></div>
+            <div class="arrow-down"></div>
+            <div class="arrow-down"></div>
+        </div>
+
         <div class="greeting-text" id="greetingText">
-            <div class="greeting-content" style="opacity: 0.6; font-size: 16px;">
+            <div class="greeting-content" style="opacity: 0.6; font-size: 14px;">
                 马儿正在思考中...<br/>🐴💭
             </div>
         </div>
@@ -537,6 +600,7 @@
 
         const button = document.getElementById('greetingButton');
         const greetingText = document.getElementById('greetingText');
+        const scrollIndicator = document.querySelector('.scroll-indicator');
         let lastGreeting = -1;
         let placeholderIndex = 0;
         let clickCount = 0; // Track number of clicks
@@ -555,7 +619,7 @@
                 content.style.opacity = '0.6';
                 // Set font size based on screen width
                 if (window.innerWidth <= 768) {
-                    content.style.fontSize = '16px';
+                    content.style.fontSize = '14px';
                 } else {
                     content.style.fontSize = '28px';
                 }
@@ -572,6 +636,14 @@
             setTimeout(() => this.classList.remove('clicked'), 600);
 
             clickCount++;
+
+            // Hide arrows after first click
+            if (clickCount === 1) {
+                scrollIndicator.style.opacity = '0';
+                setTimeout(() => {
+                    scrollIndicator.style.display = 'none';
+                }, 300);
+            }
 
             // Decide whether to show greeting or sassy response
             // First click always gets a greeting
@@ -599,7 +671,7 @@
             newContent.style.opacity = '1';
             // Set font size based on screen width
             if (window.innerWidth <= 768) {
-                newContent.style.fontSize = '20px';
+                newContent.style.fontSize = '18px';
             } else {
                 newContent.style.fontSize = '48px';
             }
