@@ -18,8 +18,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
+            padding: 10px;
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
         }
 
         /* Animated background pattern */
@@ -46,6 +54,15 @@
             z-index: 10;
             padding: 20px;
             max-width: 600px;
+            width: 100%;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+                max-width: 100%;
+            }
         }
 
         .lantern {
@@ -54,6 +71,14 @@
             margin: 0 auto 30px;
             position: relative;
             animation: swing 3s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .lantern {
+                width: 120px;
+                height: 140px;
+                margin: 0 auto 20px;
+            }
         }
 
         @keyframes swing {
@@ -98,6 +123,13 @@
             overflow: hidden;
         }
 
+        @media (max-width: 768px) {
+            .lantern-body {
+                width: 120px;
+                height: 95px;
+            }
+        }
+
         .lantern-body::before {
             content: '福';
             font-size: 70px;
@@ -105,6 +137,12 @@
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .lantern-body::before {
+                font-size: 45px;
+            }
         }
 
         .lantern-pattern {
@@ -155,6 +193,13 @@
             animation: glow 2s ease-in-out infinite alternate;
         }
 
+        @media (max-width: 768px) {
+            .year-text {
+                font-size: 48px;
+                margin: 20px 0;
+            }
+        }
+
         @keyframes glow {
             from { text-shadow: 3px 3px 6px rgba(0,0,0,0.5), 0 0 20px rgba(255,215,0,0.5); }
             to { text-shadow: 3px 3px 6px rgba(0,0,0,0.5), 0 0 30px rgba(255,215,0,0.8), 0 0 40px rgba(255,215,0,0.6); }
@@ -168,10 +213,23 @@
             perspective: 1000px;
         }
 
+        @media (max-width: 768px) {
+            .horse-container {
+                gap: 10px;
+                margin: 20px 0;
+            }
+        }
+
         .horse {
             font-size: 80px;
             animation: bounce 1s ease-in-out infinite;
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+
+        @media (max-width: 768px) {
+            .horse {
+                font-size: 50px;
+            }
         }
 
         .horse:nth-child(1) {
@@ -202,6 +260,16 @@
             align-items: center;
             justify-content: center;
             line-height: 1.5;
+            padding: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .greeting-text {
+                font-size: 28px;
+                margin: 20px 0;
+                min-height: 80px;
+                padding: 0 5px;
+            }
         }
 
         .greeting-content {
@@ -242,6 +310,14 @@
             overflow: hidden;
         }
 
+        @media (max-width: 768px) {
+            .button {
+                padding: 15px 30px;
+                font-size: 18px;
+                margin: 15px 0;
+            }
+        }
+
         .button::before {
             content: '';
             position: absolute;
@@ -276,6 +352,13 @@
             color: rgba(255,255,255,0.9);
             margin-top: 20px;
             font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .subtitle {
+                font-size: 14px;
+                margin-top: 15px;
+            }
         }
 
         /* Fireworks */
