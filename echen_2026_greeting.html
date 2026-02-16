@@ -19,6 +19,7 @@
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
+            overflow-y: auto;
             position: relative;
             padding: 10px;
         }
@@ -26,7 +27,9 @@
         /* Mobile responsive adjustments */
         @media (max-width: 768px) {
             body {
-                padding: 5px;
+                padding: 5px 5px 10px 5px;
+                align-items: flex-start;
+                padding-top: 10px;
             }
 
             .container {
@@ -35,80 +38,80 @@
             }
 
             .lantern {
-                width: 90px;
-                height: 110px;
-                margin: 0 auto 15px;
+                width: 70px;
+                height: 90px;
+                margin: 0 auto 10px;
             }
 
             .lantern-top {
-                width: 50px;
-                height: 20px;
+                width: 40px;
+                height: 15px;
             }
 
             .lantern-top::before {
-                width: 8px;
-                height: 15px;
-                top: -15px;
+                width: 6px;
+                height: 12px;
+                top: -12px;
             }
 
             .lantern-body {
-                width: 90px;
-                height: 70px;
+                width: 70px;
+                height: 55px;
             }
 
             .lantern-body::before {
-                font-size: 35px;
+                font-size: 28px;
             }
 
             .lantern-bottom {
-                width: 50px;
-                height: 20px;
+                width: 40px;
+                height: 15px;
             }
 
             .tassel {
-                width: 3px;
-                height: 40px;
+                width: 2px;
+                height: 30px;
             }
 
             .tassel-end {
-                width: 25px;
-                height: 25px;
+                width: 20px;
+                height: 20px;
             }
 
             .year-text {
-                font-size: 36px;
-                margin: 15px 0 10px 0;
+                font-size: 32px;
+                margin: 10px 0 8px 0;
             }
 
             .horse-container {
-                gap: 8px;
-                margin: 15px 0;
+                gap: 6px;
+                margin: 10px 0;
             }
 
             .horse {
-                font-size: 40px;
+                font-size: 35px;
             }
 
             .button {
-                padding: 12px 25px;
-                font-size: 16px;
-                margin: 15px 0 10px 0;
+                padding: 10px 20px;
+                font-size: 15px;
+                margin: 10px 0 8px 0;
             }
 
             .greeting-text {
-                font-size: 22px;
-                margin: 15px 0;
-                min-height: 70px;
-                padding: 0 10px;
+                font-size: 20px;
+                margin: 10px 0;
+                min-height: 60px;
+                padding: 0 8px;
             }
 
             .greeting-content {
-                font-size: 22px !important;
+                font-size: 20px !important;
             }
 
             .subtitle {
-                font-size: 12px;
-                margin-top: 10px;
+                font-size: 11px;
+                margin-top: 8px;
             }
         }
 
@@ -467,7 +470,7 @@
         </button>
 
         <div class="greeting-text" id="greetingText">
-            <div class="greeting-content" style="opacity: 0.6; font-size: 18px;">
+            <div class="greeting-content" style="opacity: 0.6; font-size: 16px;">
                 马儿正在思考中...<br/>🐴💭
             </div>
         </div>
@@ -552,7 +555,7 @@
                 content.style.opacity = '0.6';
                 // Set font size based on screen width
                 if (window.innerWidth <= 768) {
-                    content.style.fontSize = '18px';
+                    content.style.fontSize = '16px';
                 } else {
                     content.style.fontSize = '28px';
                 }
@@ -596,7 +599,7 @@
             newContent.style.opacity = '1';
             // Set font size based on screen width
             if (window.innerWidth <= 768) {
-                newContent.style.fontSize = '22px';
+                newContent.style.fontSize = '20px';
             } else {
                 newContent.style.fontSize = '48px';
             }
